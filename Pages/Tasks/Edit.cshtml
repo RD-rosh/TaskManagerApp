@@ -1,0 +1,33 @@
+@page
+@model TaskManagerApp.Pages.Tasks.EditModel
+@{
+    ViewData["Title"] = "Edit Task";
+}
+
+<h1>Edit Task</h1>
+
+<h4>TaskItem</h4>
+<hr />
+
+<form method="post">
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input type="text" class="form-control" id="Title" name="TaskItem.Title" value="@Model.TaskItem.Title" required />
+    </div>
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <input type="text" class="form-control" id="Description" name="TaskItem.Description" value="@Model.TaskItem.Description" required />
+    </div>
+    <div class="form-group">
+        <label for="DueDate">Due Date</label>
+        <input type="date" class="form-control" id="DueDate" name="TaskItem.DueDate" value="@Model.TaskItem.DueDate.ToString("yyyy-MM-dd")" required />
+    </div>
+    <div class="form-group">
+        <label for="IsComplete">Is Complete</label>
+        <!-- Use the asp-for tag helper to bind the checkbox -->
+        <input type="checkbox" class="form-check-input" id="IsComplete" asp-for="TaskItem.IsComplete" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+</form>
